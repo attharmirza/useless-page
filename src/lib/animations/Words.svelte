@@ -21,7 +21,7 @@
 	let textWidth: number = $state(0)
 	let textElements: Array<string> = $state([text, text])
 	let textElementsWidth: number = $derived(textElements.length * textWidth)
-	let isFilled = $derived(textElementsWidth >= rowWidth)
+	let isFilled = $derived(textElementsWidth > rowWidth)
 
 	$effect(() => {
 		if (isFilled || textElements.length > 5000) {
