@@ -1,0 +1,16 @@
+/* 
+This file is for extremely basic global CSS resets. It should not be edited, 
+put changes in the layout components that need them. The root level 
+layout.svelte file functions as "global" styles.
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}

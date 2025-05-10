@@ -8,6 +8,9 @@ export default {
 			fallback: 'index.html',
 			precompress: false,
 			strict: true
-		})
+		}),
+		alias: {
+			['@']: 'src'
+		}
 	}
 }
