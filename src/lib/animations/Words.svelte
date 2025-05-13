@@ -7,29 +7,44 @@
 
 	// Setting a bunch of info related to rows
 
-	const rowCount: number = 10
+	const rowCount: number = 12
 
-	const rowArray: Array<number> = new Array(rowCount)
-		.fill(0)
-		.map((value: number, index: number) => index)
+	const rowArray: Array<number> = new Array(rowCount).fill(0).map((value: number, index: number) => index)
 
-	let rowWidth: number = $state(0)
 	let rowHeight: number = $state(0)
 
 	// Creating logic for filling screen no matter the length of the text
-
+	let rowWidth: number = $state(0)
 	let textWidth: number = $state(0)
-	let textElements: Array<string> = $state([text, text])
-	let textElementsWidth: number = $derived(textElements.length * textWidth)
-	let isFilled = $derived(textElementsWidth > rowWidth)
+
+	let textRepetitions: number = $derived(textWidth > 0 && rowWidth > 0 ? Math.ceil(rowWidth / textWidth) : 0)
+
+	interface TextElements {
+		isPlaying: boolean
+		elements: Array<string>
+	}
+
+	let textElements: TextElements = $state({
+		isPlaying: false,
+		elements: []
+	})
 
 	$effect(() => {
-		if (isFilled || textElements.length > 5000) {
+		textElements.isPlaying = false
+
+		if (textRepetitions <= 2) {
+			textElements.elements = Array(2).fill(text)
+			textElements.isPlaying = true
 			return
-		} else {
-			textElements.push(text)
 		}
+
+		textElements.elements = Array(textRepetitions).fill(text)
+		textElements.isPlaying = true
+
+		return
 	})
+
+	$effect(() => console.log(textElements.isPlaying))
 </script>
 
 <div class="container" style:grid-template-rows={`repeat(${rowCount}, 1fr)`}>
@@ -41,9 +56,9 @@
 			style:font-size={`${rowHeight}px`}
 			style:line-height={`${rowHeight}px`}
 		>
-			{#each textElements as elem}
+			{#each textElements.elements as elem}
 				<span
-					class={`marquee ${isFilled ? 'marqueeAnimated' : ''}`}
+					class={`marquee ${textElements.isPlaying ? 'marqueeAnimated' : ''}`}
 					style:animation-direction={row % 2 === 1 ? 'normal' : 'reverse'}
 					style:animation-duration={`${text.length / 2}s`}
 					bind:offsetWidth={textWidth}
