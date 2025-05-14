@@ -14,54 +14,22 @@
 	let rowHeight: number = $state(0)
 
 	// Creating logic for filling screen no matter the length of the text
-	let rowWidth: number = $state(0)
-	let textWidth: number = $state(0)
-
-	let textRepetitions: number = $derived(textWidth > 0 && rowWidth > 0 ? Math.ceil(rowWidth / textWidth) : 0)
-
-	interface TextElements {
-		isPlaying: boolean
-		elements: Array<string>
-	}
-
-	let textElements: TextElements = $state({
-		isPlaying: false,
-		elements: []
-	})
-
-	$effect(() => {
-		textElements.isPlaying = false
-
-		if (textRepetitions <= 2) {
-			textElements.elements = Array(2).fill(text)
-			textElements.isPlaying = true
-			return
-		}
-
-		textElements.elements = Array(textRepetitions).fill(text)
-		textElements.isPlaying = true
-
-		return
-	})
-
-	$effect(() => console.log(textElements.isPlaying))
+	let textElements: Array<string> = $derived(Array(100).fill(text))
 </script>
 
 <div class="container" style:grid-template-rows={`repeat(${rowCount}, 1fr)`}>
 	{#each rowArray as row}
 		<div
 			class="row"
-			bind:clientWidth={rowWidth}
 			bind:clientHeight={rowHeight}
 			style:font-size={`${rowHeight}px`}
 			style:line-height={`${rowHeight}px`}
 		>
-			{#each textElements.elements as elem}
+			{#each textElements as elem}
 				<span
-					class={`marquee ${textElements.isPlaying ? 'marqueeAnimated' : ''}`}
+					class={'marquee marqueeAnimated'}
 					style:animation-direction={row % 2 === 1 ? 'normal' : 'reverse'}
 					style:animation-duration={`${text.length / 2}s`}
-					bind:offsetWidth={textWidth}
 				>
 					{elem.toUpperCase()}
 				</span>
