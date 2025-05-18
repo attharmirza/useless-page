@@ -14,8 +14,8 @@
 	@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 
 	.content {
-		--color-primary: #aaaaaa;
-		--color-secondary: #000000;
+		--color-primary: #000000;
+		--color-secondary: #aaaaaa;
 
 		font-family: 'Ultra';
 		pointer-events: none;
