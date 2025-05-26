@@ -11,6 +11,9 @@ export default {
 		}),
 		alias: {
 			['@']: 'src'
+		},
+		output: {
+			bundleStrategy: 'single'
 		}
 	}
 }
