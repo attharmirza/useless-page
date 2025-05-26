@@ -7,11 +7,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check ."
+		"deploy": "vite build && aws s3 sync ./build/ s3://uselesspage-prod-staticsite/ --delete"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",
