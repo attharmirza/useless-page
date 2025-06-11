@@ -1,1 +1,1 @@
-export { default as Menu } from './Menu.svelte'
+export { default as Color } from './Color.svelte'
