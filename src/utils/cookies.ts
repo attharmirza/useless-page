@@ -1,6 +1,8 @@
 /**
  * Validate coookie name.
+ *
  * @param name Name of the cookie to validate
+ *
  * @returns True if the name is valid, false otherwise
  */
 function validateCookieName(name: string) {
@@ -14,8 +16,8 @@ function validateCookieName(name: string) {
 }
 
 /**
- * Set a cookie with a specified name and value.
- * The cookie will expire in one year.
+ * Set a cookie with a specified name and value. The cookie will expire in one year.
+ *
  * @param name Key for setting/retrieving the cookie
  * @param value Value to be stored in the cookie
  */
@@ -29,7 +31,9 @@ export function setCookie(name: string, value: string) {
 
 /**
  * Get the value of a cookie by its name.
+ *
  * @param name Name of the cookie to retrieve
+ *
  * @returns The value of the cookie, or an empty string if not found
  */
 export function getCookie(name: string) {

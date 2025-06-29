@@ -1,1 +1,1 @@
-export { default as Color } from './Color.svelte'
+export { default as ThemeSelector } from './ThemeSelector.svelte'

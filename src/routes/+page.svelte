@@ -1,5 +1,5 @@
 <script>
-	import { Waves, Words } from '$lib'
+	import { Words } from '$lib'
 </script>
 
 <div class="animationContainer">

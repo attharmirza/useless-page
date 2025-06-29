@@ -10,7 +10,7 @@ export default {
 			strict: true
 		}),
 		alias: {
-			['@']: 'src'
+			'@': 'src'
 		},
 		output: {
 			bundleStrategy: 'single'
