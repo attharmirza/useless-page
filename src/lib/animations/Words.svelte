@@ -44,8 +44,8 @@
 		height: 100%;
 		overflow: hidden;
 		display: grid;
-		background-color: var(--color-primary);
-		color: var(--color-secondary);
+		background-color: var(--color-dark);
+		color: var(--color-light);
 	}
 
 	.row {

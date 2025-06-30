@@ -1,31 +1,37 @@
 <script lang="ts">
-	import { Color } from '$lib'
+	import { ThemeSelector } from '$lib'
+	import { themes, type ThemeName } from '@/utils'
+
+	const themeNames = Object.keys(themes) as ThemeName[]
 </script>
 
 <div class="container">
 	<div class="row">
-		<p>Select a Color</p>
+		<p>Select a Theme</p>
 	</div>
-	<div class="row">
-		<Color name="Basic" dark="#" light="#" />
-		<Color name="Warm Tones" dark="#" light="#" />
-	</div>
+	{#each themeNames as name}
+		<div class="row">
+			<ThemeSelector {name} />
+		</div>
+	{/each}
 </div>
 
 <style>
 	.container {
 		--element-height: calc(100vh / 12);
 
-		display: grid;
-		grid-template-rows: var(--element-height);
+		display: flex;
+		flex-direction: column;
+		width: 100%;
 	}
 
 	.row {
-		margin: 0;
+		width: 100%;
 		font-size: var(--element-height);
 		line-height: var(--element-height);
 		max-height: var(--element-height);
 		overflow: hidden;
+		text-transform: uppercase;
 	}
 
 	.row p {

@@ -1,38 +1,16 @@
+import { writable } from 'svelte/store'
+import { getCookie } from '@/utils'
+
 /**
- * A Useless Page color theme.
+ * Available themes for use in the application. The key is the theme name, and the value is an object with `light`
+ * and `dark` color values.
  *
- * All themes based on the "Haishoku Soukan" by Sanzo Wada, as depicted in the book "A Dictionary of Color Combinations."
+ * All themes based on the "Haishoku Soukan" by Sanzo Wada, as depicted in the book
+ * "A Dictionary of Color Combinations."
  *
  * @see https://www.giuseppegallo.design/books-for-architects-and-designers/a-dictionary-of-color-combinations-sanzo-wada/
  */
-
-interface ThemeDefinition {
-	/**
-	 * Name of the theme, the two colors separated by an ampersand.
-	 */
-	name: string
-	/**
-	 * The brighter of the two colors, should always be a CSS compatible format.
-	 *
-	 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color
-	 */
-	light: string
-	/**
-	 * The darker of the two colors, should always be a CSS compatible format.
-	 *
-	 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color
-	 */
-	dark: string
-}
-
-/**
- * Available themes for use in the application. The key is the theme name, and the value is an object with `light` and `dark` color values.
- *
- * All themes based on the "Haishoku Soukan" by Sanzo Wada, as depicted in the book "A Dictionary of Color Combinations."
- *
- * @see https://www.giuseppegallo.design/books-for-architects-and-designers/a-dictionary-of-color-combinations-sanzo-wada/
- */
-const themeDefinitions = {
+export const themes = {
 	['Seashell Pink & Deep Slate Green']: {
 		light: 'rgb(255, 207, 196)',
 		dark: 'rgb(15, 38, 31)'
@@ -58,16 +36,25 @@ const themeDefinitions = {
 /**
  * A valid theme name.
  */
-export type ThemeName = keyof typeof themeDefinitions
+export type ThemeName = keyof typeof themes
 
 /**
- * Generate a map from an array of theme definitions.
- *
- * @returns A map for theme definitions
+ * The default theme.
  */
-const generateThemes = () => new Map(themeDefinitions.map((d) => [d.name, d]))
+export const defaultTheme: ThemeName = 'Glaucous Green & Orange'
 
 /**
- * All Useless Page color themes, accessible through their names.
+ * Set active theme value based on whether a cookie already exists.
  */
-export const themes: Map<ThemeName, ThemeDefinition> = generateThemes()
+const activeThemeInitialValue = () => {
+	try {
+		return getCookie('theme') as ThemeName
+	} catch (error) {
+		return defaultTheme
+	}
+}
+
+/**
+ * A store for the currently selected theme.
+ */
+export const activeTheme = writable<ThemeName>(activeThemeInitialValue())

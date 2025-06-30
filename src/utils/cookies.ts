@@ -6,7 +6,7 @@
  * @returns True if the name is valid, false otherwise
  */
 function validateCookieName(name: string) {
-	const check = !/^[A-Za-z0-9_\-]+$/.test(name)
+	const check = /^[A-Za-z0-9_\-]+$/.test(name)
 
 	if (!check) {
 		throw new Error(`Invalid cookie name: ${name}. Only alphanumeric characters, underscores, and hyphens are allowed.`)

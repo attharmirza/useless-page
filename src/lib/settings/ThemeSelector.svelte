@@ -1,25 +1,29 @@
 <script lang="ts">
 	import type { ThemeName } from '@/utils'
-	import { setCookie, themes } from '@/utils'
-	import { writable, type Writable } from 'svelte/store'
+	import { setCookie, themes, activeTheme } from '@/utils'
 
-	interface Props {
-		name: ThemeName
-	}
-
-	const { name }: Props = $props()
-
-	export const activeTheme: Writable<ThemeName> = writable<ThemeName>('lkdjs')
+	export let name: ThemeName = 'Seashell Pink & Deep Slate Green'
 
 	const setTheme = (name: ThemeName) => {
 		setCookie('theme', name)
+		activeTheme.set(name)
 	}
 </script>
 
-<p class="selector">{name}</p>
+<button class="selector" onclick={() => setTheme(name)}>
+	{name}
+</button>
 
 <style>
-	p {
-		margin: 0;
+	.selector {
+		all: unset;
+		width: 100%;
+		height: 100%;
+		white-space: nowrap;
+		cursor: auto;
+	}
+
+	.selector:hover {
+		cursor: pointer;
 	}
 </style>
