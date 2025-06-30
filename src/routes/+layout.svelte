@@ -10,7 +10,7 @@
 	activeTheme.subscribe((v) => (activeThemeName = v))
 
 	const themeColorVariables = $derived(
-		`--color-dark: ${activeThemeColors.dark}; --color-light: ${activeThemeColors.light}`
+		`--color-dark: ${activeThemeColors.dark}; --color-light: ${activeThemeColors.light};`
 	)
 </script>
 
@@ -27,5 +27,6 @@
 
 	.content {
 		font-family: 'Ultra';
+		background-color: var(--color-dark);
 	}
 </style>

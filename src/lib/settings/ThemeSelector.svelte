@@ -8,10 +8,16 @@
 		setCookie('theme', name)
 		activeTheme.set(name)
 	}
+
+	const themeColors = themes[name]
 </script>
 
-<button class="selector" onclick={() => setTheme(name)}>
-	{name}
+<button
+	class="selector"
+	onclick={() => setTheme(name)}
+	style={`color: ${themeColors.light}; background-color: ${themeColors.dark}`}
+>
+	<span class="selectorText">{name}</span>
 </button>
 
 <style>

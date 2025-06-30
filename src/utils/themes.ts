@@ -9,6 +9,10 @@ import { getCookie } from '@/utils'
  * "A Dictionary of Color Combinations."
  *
  * @see https://www.giuseppegallo.design/books-for-architects-and-designers/a-dictionary-of-color-combinations-sanzo-wada/
+ *
+ * Themes were converted from CMYK using colordesigner.io, a really awesome website by Wojciech Banaś.
+ *
+ * @see https://colordesigner.io/convert/cmyktorgb
  */
 export const themes = {
 	['Seashell Pink & Deep Slate Green']: {
@@ -30,6 +34,10 @@ export const themes = {
 	['Sulphur Yellow & Light Mauve']: {
 		light: 'rgb(245, 245, 184)',
 		dark: 'rgb(145, 97, 242)'
+	},
+	['Mineral Gray & Pompeian Red']: {
+		light: 'rgb(159, 194, 178)',
+		dark: 'rgb(169, 6, 54)'
 	}
 } as const
 
