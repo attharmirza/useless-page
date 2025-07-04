@@ -3,7 +3,7 @@
 </script>
 
 <div class="animationContainer">
-	<NavigationButton route="/settings" text="Settings" />
+	<NavigationButton route="/settings" text="Themes" />
 	<Words text="useless.page." />
 </div>
 
