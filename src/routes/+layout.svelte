@@ -26,7 +26,7 @@
 	@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 
 	.content {
-		font-family: 'Ultra';
+		font-family: 'Ultra', sans-serif;
 		background-color: var(--color-dark);
 	}
 </style>

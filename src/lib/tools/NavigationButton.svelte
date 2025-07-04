@@ -16,13 +16,13 @@
 		position: absolute;
 		top: 1rem;
 		right: 1rem;
-		padding: 0.5rem;
+		padding: 0.25rem;
 		border: 3px solid var(--color-light);
 		z-index: 100;
 		background-color: var(--color-dark);
 		color: var(--color-light);
 		border-radius: 0.5rem;
-		font-size: 1rem;
+		font-size: 0.8rem;
 	}
 
 	.button:hover {
