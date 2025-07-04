@@ -15,10 +15,6 @@ import { getCookie } from '@/utils'
  * @see https://colordesigner.io/convert/cmyktorgb
  */
 export const themes = {
-	['Seashell Pink & Deep Slate Green']: {
-		light: 'rgb(255, 207, 196)',
-		dark: 'rgb(15, 38, 31)'
-	},
 	['Glaucous Green & Orange']: {
 		light: 'rgb(179, 232, 194)',
 		dark: 'rgb(255, 82, 0)'
@@ -35,9 +31,25 @@ export const themes = {
 		light: 'rgb(245, 245, 184)',
 		dark: 'rgb(145, 97, 242)'
 	},
+	['Black & Warm Gray']: {
+		light: 'rgb(156, 178, 158)',
+		dark: 'rgb(0, 0, 0)'
+	},
 	['Mineral Gray & Pompeian Red']: {
 		light: 'rgb(159, 194, 178)',
 		dark: 'rgb(169, 6, 54)'
+	},
+	['Coral Red & Benzol Green']: {
+		light: 'rgb(255, 115, 153)',
+		dark: 'rgb(0, 217, 115)'
+	},
+	['Blue & Carmine Red']: {
+		light: 'rgb(13, 117, 255)',
+		dark: 'rgb(161, 11, 43)'
+	},
+	['Dark Tyrian Blue & Yellow Orange']: {
+		light: 'rgb(255, 140, 0)',
+		dark: 'rgb(13, 43, 82)'
 	}
 } as const
 
@@ -49,7 +61,7 @@ export type ThemeName = keyof typeof themes
 /**
  * The default theme.
  */
-export const defaultTheme: ThemeName = 'Glaucous Green & Orange'
+export const defaultTheme: ThemeName = 'Black & Warm Gray'
 
 /**
  * Set active theme value based on whether a cookie already exists.
