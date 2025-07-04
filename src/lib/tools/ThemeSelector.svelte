@@ -2,7 +2,11 @@
 	import type { ThemeName } from '@/utils'
 	import { setCookie, themes, activeTheme } from '@/utils'
 
-	export let name: ThemeName = 'Seashell Pink & Deep Slate Green'
+	interface Props {
+		name: ThemeName
+	}
+
+	const { name }: Props = $props()
 
 	const setTheme = (name: ThemeName) => {
 		setCookie('theme', name)

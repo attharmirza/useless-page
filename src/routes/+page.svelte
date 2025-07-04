@@ -1,8 +1,9 @@
 <script>
-	import { Words } from '$lib'
+	import { Words, NavigationButton } from '$lib'
 </script>
 
 <div class="animationContainer">
+	<NavigationButton route="/settings" text="Settings" />
 	<Words text="useless.page." />
 </div>
 
