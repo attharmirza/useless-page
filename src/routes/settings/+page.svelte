@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ThemeSelector, NavigationButton } from '$lib'
+	import { ThemeSelector, NavigationButton, MarqueeMaker } from '$lib'
 	import { themes, type ThemeName } from '@/utils'
 
 	const themeNames = Object.keys(themes) as ThemeName[]
@@ -9,7 +9,7 @@
 	<NavigationButton route="/" text="Back" />
 	<div class="row"></div>
 	<div class="row rowTitle">
-		<p>Select Theme:</p>
+		<MarqueeMaker text="Select Theme" isCentered={true} separator="&nbsp;" />
 	</div>
 	<div class="row"></div>
 	{#each themeNames as name}

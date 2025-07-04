@@ -3,7 +3,7 @@
 		text: string
 	}
 
-	const { text }: Props = $props()
+	let { text }: Props = $props()
 
 	// Setting a bunch of info related to rows
 

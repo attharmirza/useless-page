@@ -6,7 +6,7 @@
 		text: string
 	}
 
-	const { route, text }: Props = $props()
+	let { route, text }: Props = $props()
 </script>
 
 <button class="button" onclick={() => goto(route)}><b>{text}</b></button>

@@ -1,12 +1,13 @@
 <script lang="ts">
 	import type { ThemeName } from '@/utils'
 	import { setCookie, themes, activeTheme } from '@/utils'
+	import MarqueeMaker from './MarqueeMaker.svelte'
 
 	interface Props {
 		name: ThemeName
 	}
 
-	const { name }: Props = $props()
+	let { name }: Props = $props()
 
 	const setTheme = (name: ThemeName) => {
 		setCookie('theme', name)
@@ -21,7 +22,7 @@
 	onclick={() => setTheme(name)}
 	style={`color: ${themeColors.light}; background-color: ${themeColors.dark}`}
 >
-	<span class="selectorText">{name}</span>
+	<MarqueeMaker text={name} isCentered={true} separator="&nbsp;&&nbsp;" />
 </button>
 
 <style>
